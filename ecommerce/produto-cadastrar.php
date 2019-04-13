@@ -7,7 +7,7 @@
 </script>
 <style>
   .content{
-    padding-top: 20px;
+    padding: 20px;
     background-color: #fcfcfc;
   }
   .texto-categoria{
@@ -18,7 +18,7 @@
   <div class="row">
     <div class="col-md-6">
       <h1>Cadastrar Produto</h1>
-      <form action="adicionar-produto.php">
+      <form action="produto-adicionar.php" method="post">
         <div class="form-group">
           <label for="nome_produto">Nome</label>
           <input type="text" class="form-control" id="nome_produto" aria-describedby="nomeProduto" placeholder="Nome Produto">
@@ -86,6 +86,11 @@
           </div>
           <!-- Fim da Categoria Filho -->
         </div>
+        <div class="form-group">
+          <label for="preco_desconto_produto">Quantidade</label>
+          <input type="text" class="form-control" id="preco_desconto_produto" aria-describedby="precoDescontoProduto" placeholder="Preço Desconto">
+        </div>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
     </div>
   </div>
