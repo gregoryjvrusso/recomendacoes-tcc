@@ -2,7 +2,7 @@
 class Produto
 {
 	private $sku;
-	private $nome_produto;
+	private $nome;
 	private $marca;
 	private $preco_original;
 	private $preco_desconto;
@@ -17,13 +17,13 @@ class Produto
 	{
 		$this->sku = $sku;
 	}
-	public function getNomeProduto()
+	public function getNome()
 	{
-		return $this->nome_produto;
+		return $this->nome;
 	}
-  public function setNomeProduto($nome)
+  public function setNome($nome)
   {
-    $this->nome_produto = $nome;
+    $this->nome = $nome;
   }
 	public function getMarca()
 	{
@@ -53,9 +53,9 @@ class Produto
 	{
 		return $this->arvore_categoria;
 	}
-	public function setArvoreCategoria($arvore_categoria)
+	public function setArvoreCategoria($arvore_categoria_pai, $arvore_categoria_filha)
 	{
-		$this->arvore_categoria = $arvore_categoria;
+		$this->arvore_categoria = $arvore_categoria_pai . '|' . $arvore_categoria_filha;
 	}
 	public function getQuantidade()
 	{
