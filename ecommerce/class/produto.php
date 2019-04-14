@@ -58,6 +58,9 @@ class Produto
 	{
 		$this->arvore_categoria = $arvore_categoria_pai . '|' . $arvore_categoria_filha;
 	}
+	public function setArvoreCategoriaBD($arvore_categoria){
+		$this->arvore_categoria = $arvore_categoria;
+	}
 	public function getQuantidade()
 	{
 		return $this->quantidade;
@@ -76,6 +79,9 @@ class Produto
 		if(!is_null($foto3)){
 			array_push($this->fotos, $foto3);
 		}
+	}
+	public function setFotoBD($foto){
+		array_push($this->fotos, 'fotos/'.$foto);
 	}
 	public function getFotos(){
 		return $this->fotos;

@@ -1,12 +1,12 @@
-/* ignore errors */
+/* ignore erros */
 CREATE TABLE PRODUTOS (
   sku INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nome VARCHAR(200) NOT NULL,
   marca VARCHAR(200) NOT NULL,
-  preco_original FLOAT(2,2),
-  preco_desconto FLOAT(2,2),
+  preco_original DECIMAL(10,2),
+  preco_desconto DECIMAL(10,2),
   arvore_categoria VARCHAR(200),
-  quantidade INT,
+  quantidade INT
 );
 
 CREATE TABLE FOTOS(

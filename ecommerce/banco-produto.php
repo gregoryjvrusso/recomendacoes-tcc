@@ -12,8 +12,14 @@ function listaProduto($conexao){
 		$produto->setMarca($produtos_array{'marca'});
 		$produto->setPrecoOriginal($produtos_array{'preco_original'});
 		$produto->setPrecoDesconto($produtos_array{'preco_desconto'});
-		$produto->setArvoreCategoria($produtos_array{'arvore_categoria'});
-		$produto->setQuantidade($produtos_array{'quantidade'});
+		$produto->setArvoreCategoriaBD($produtos_array{'arvore_categoria'});
+    $produto->setQuantidade($produtos_array{'quantidade'});
+
+    $query = "select * from fotos where sku_produto = {$produto->getSku()} limit 1";
+    $resultadoFoto = mysqli_query($conexao, $query);
+    $foto_array = mysqli_fetch_assoc($resultadoFoto);
+    
+    $produto->setFotoBD($foto_array{'url_foto'});
 		array_push($produtos, $produto);
 	}
 	return $produtos;
