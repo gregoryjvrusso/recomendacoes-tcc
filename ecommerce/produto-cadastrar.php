@@ -55,19 +55,19 @@
           <div class="categoria-pai">
             <p class="texto-categoria">Categoria Pai</p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai1" value="option1">
+              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai1" value="masculino">
               <label class="form-check-label" for="arvore_categoria_pai1">
                 Masculino
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai2" value="option2">
+              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai2" value="feminino">
               <label class="form-check-label" for="arvore_categoria_pai2">
                 Feminino
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai3" value="option3">
+              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai3" value="unissex">
               <label class="form-check-label" for="arvore_categoria_pai3">
                 Unissex
               </label>

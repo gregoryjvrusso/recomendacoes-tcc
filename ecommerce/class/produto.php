@@ -61,6 +61,10 @@ class Produto
 	public function setArvoreCategoriaBD($arvore_categoria){
 		$this->arvore_categoria = $arvore_categoria;
 	}
+	public function getGenero(){
+		$genero = explode("|", $this->arvore_categoria);
+		return $genero[0];
+	}
 	public function getQuantidade()
 	{
 		return $this->quantidade;

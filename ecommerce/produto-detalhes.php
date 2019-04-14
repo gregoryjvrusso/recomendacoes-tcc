@@ -3,12 +3,31 @@ require_once("banco-produto.php");
 
 $sku = $_GET['sku'];
 $produto = buscaProduto($conexao, $sku);
+$json = array(
+    "sku" => $produto->getSku(),
+    "nome" => $produto->getNome(),
+    "marca" => $produto->getMarca(),
+    "preco_original" => $produto->getPrecoOriginal(),
+    "preco_desconto" => $produto->getPrecoDesconto(),
+    "arvore_categoria" => $produto->getArvoreCategoria(),
+    "genero" => $produto->getGenero()
+  );
+$codificado = json_encode($json);
+file_put_contents('produto.json', $codificado);
 ?>
-	
 <script>
-  $(function () {
-    $('.carousel').carousel()
-  });
+  (function(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('GET', 'produto.json', true);
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4) {
+        if(xmlhttp.status == 200) {
+            dataLayer = JSON.parse(xmlhttp.responseText); 
+        }
+      }
+    };
+    xmlhttp.send(null);
+  })();
 </script>
 <style>
   .content{
