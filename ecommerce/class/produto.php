@@ -8,6 +8,7 @@ class Produto
 	private $preco_desconto;
 	private $arvore_categoria;
 	private $quantidade;
+	private $fotos = array();
 
 	public function getSku()
 	{
@@ -64,5 +65,19 @@ class Produto
 	public function setQuantidade($quantidade)
 	{
 		$this->quantidade = $quantidade;
+	}
+	public function setFotos($foto1, $foto2, $foto3){
+		if(!is_null($foto1)){
+			array_push($this->fotos, $foto1);
+		}
+		if(!is_null($foto2)){
+			array_push($this->fotos, $foto2);
+		}
+		if(!is_null($foto3)){
+			array_push($this->fotos, $foto3);
+		}
+	}
+	public function getFotos(){
+		return $this->fotos;
 	}
 }

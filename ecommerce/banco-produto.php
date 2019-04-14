@@ -54,3 +54,17 @@ function buscaProduto($conexao, $sku) {
 	
     return $produto;
 }
+
+function buscarIdProduto($conexao) {
+	$query = "SELECT max(sku) FROM PRODUTOS";
+	$resultado = mysqli_query($conexao, $query);
+
+	return mysqli_fetch_assoc($resultado);
+}
+
+function insereFoto($conexao, $produto, $foto){ 
+	$query = "insert into fotos (sku_produto, url_foto) value ({$produto->getSku()}, '{$foto}')";
+	$resultadoDaInsersao = mysqli_query($conexao, $query);
+
+	return $resultadoDaInsersao;
+}

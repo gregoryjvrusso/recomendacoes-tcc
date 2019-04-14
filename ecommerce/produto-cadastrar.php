@@ -35,6 +35,20 @@
           <label for="preco_desconto">Preço Desconto</label>
           <input type="text" class="form-control" id="preco_desconto" name="preco_desconto" placeholder="Preço Desconto">
         </div>
+        <div class="fotos">
+          <div class="form-group">
+            <label for="foto1">Foto 1</label>
+            <input type="file" class="form-control-file" id="foto1" name="foto1">
+          </div>
+          <div class="form-group">
+            <label for="foto2">Foto 2</label>
+            <input type="file" class="form-control-file" id="foto2" name="foto2">
+          </div>
+          <div class="form-group">
+            <label for="foto3">Foto 3</label>
+            <input type="file" class="form-control-file" id="foto3" name="foto3">
+          </div>
+        </div>
         <div class="categoria">
           <h2>Categoria</h2>
           <!-- Inicio da Categoria Pai -->

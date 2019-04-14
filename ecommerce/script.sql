@@ -1,4 +1,4 @@
-/* ignore error */
+/* ignore errors */
 CREATE TABLE PRODUTOS (
   sku INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nome VARCHAR(200) NOT NULL,
@@ -7,6 +7,12 @@ CREATE TABLE PRODUTOS (
   preco_desconto FLOAT(2,2),
   arvore_categoria VARCHAR(200),
   quantidade INT,
+);
+
+CREATE TABLE FOTOS(
+  id_fotos INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  sku_produto INT NOT NULL,
+  url_foto VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE QUANTIDADES(
