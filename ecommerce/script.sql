@@ -21,7 +21,8 @@ CREATE TABLE QUANTIDADES(
   p INT,
   m INT,
   g INT,
-  gg INT
+  gg INT,
+  unico INT
 );
 
 CREATE TABLE CARACTERISTICAS (
