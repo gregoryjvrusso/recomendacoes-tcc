@@ -1,4 +1,9 @@
-<?php include("php/header.php"); ?>
+<?php include("php/header.php"); 
+require_once("banco-produto.php");
+
+$sku = $_GET['sku'];
+$produto = buscaProduto($conexao, $sku);
+?>
 	
 <script>
   $(function () {
@@ -26,15 +31,18 @@
     <!-- Carousel -->
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="fotos/camisa01.foto1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="fotos/camisa01.foto2.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="fotos/camisa01.foto3.jpg" class="d-block w-100" alt="...">
-          </div>
+        <?php 
+          foreach($produto->getFotos() as $foto => $value):
+            if($foto == 0){ ?>
+              <div class="carousel-item active">
+                <img src="<?= $value ?>" class="d-block w-100" alt="...">
+              </div>
+            <?php }else{ ?>
+              <div class="carousel-item">
+                <img src="<?= $value ?>" class="d-block w-100" alt="...">
+              </div>
+            <?php } ?>    
+          <?php endforeach; ?>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -51,19 +59,19 @@
         <input type="hidden" name="produto_sku" value="234jjgr">
         <div class="row product-information" id="product-name-container">
           <div class="col-10 col-sm-12">
-            <h1 id="produto-nome">Nome do Produto</h1>
+            <h1 id="produto-nome"><?= $produto->getNome(); ?></h1>
             <input type="hidden" name="produto_nome" value="Nome">
           </div>
         </div>
         <div class="row product-information" id="product-price-container">
           <div class="col-md-10 col-sm-12">
-            <span id="produto-preco">R$ 99,00</span>
+            <span id="produto-preco"><?= $produto->getPrecoOriginal(); ?></span>
             <input type="hidden" name="produto_preco" value="99,00">
           </div>
         </div>
         <div class="row product-information" id="product-brand-container">
           <div class="col-md-10 col-sm-12">
-            <span id="produto-marca">Marca do Produto</span>
+            <span id="produto-marca"><?= $produto->getMarca() ?></span>
             <input type="hidden" name="produto_marca" value="Brand" >
           </div>
         </div>

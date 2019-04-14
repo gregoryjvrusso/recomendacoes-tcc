@@ -38,7 +38,7 @@ $produtos = listaProduto($conexao);
       <div class="row">
         <?php foreach($produtos as $produto): ?>
         <div class="col-md-4 col-sm-12">
-          <a href="">
+          <a href="produto-detalhes.php?sku=<?= $produto->getSku() ?>">
             <div class="card">
               <img class="card-img-top imagem-produto" src="<?= $produto->getFotos()[0] ?>" alt="Foto do Produto">
             </div>

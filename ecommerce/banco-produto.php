@@ -55,10 +55,15 @@ function buscaProduto($conexao, $sku) {
 	$produto->setMarca($produto_buscado{'marca'});
 	$produto->setPrecoOriginal($produto_buscado{'preco_original'});
 	$produto->setPrecoDesconto($produto_buscado{'preco_desconto'});
-	$produto->setArvoreCategoria($produto_buscado{'arvore_categoria'});
-	$produto->setQuantidade($produto_buscado{'quantidade'});
-	
-    return $produto;
+	$produto->setArvoreCategoriaBD($produto_buscado{'arvore_categoria'});
+  $produto->setQuantidade($produto_buscado{'quantidade'});
+  
+  $query = "select * from fotos where sku_produto = {$produto->getSku()}";
+  $resultadoFoto = mysqli_query($conexao, $query);
+	while($fotos_array = mysqli_fetch_assoc($resultadoFoto)){
+		$produto->setFotoBD($fotos_array['url_foto']);
+	}	
+  return $produto;
 }
 
 function buscarIdProduto($conexao) {

@@ -70,13 +70,13 @@ class Produto
 		$this->quantidade = $quantidade;
 	}
 	public function setFotos($foto1, $foto2, $foto3){
-		if(!is_null($foto1)){
+		if($foto1 !== ""){
 			array_push($this->fotos, $foto1);
 		}
-		if(!is_null($foto2)){
+		if($foto2 !== ""){
 			array_push($this->fotos, $foto2);
 		}
-		if(!is_null($foto3)){
+		if($foto3 !== ""){
 			array_push($this->fotos, $foto3);
 		}
 	}
