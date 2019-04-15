@@ -79,3 +79,12 @@ function insereFoto($conexao, $produto, $foto){
 
 	return $resultadoDaInsersao;
 }
+
+function listaHandCraft($conexao){
+	$handCrafts = array();
+	$resultado = mysqli_query($conexao, "select * from HANDCRAFTS");
+	while($handCraft_array = mysqli_fetch_assoc($resultado)){
+		array_push($handCrafts, $handCraft_array{'sku'});
+	}
+	return $handCrafts;
+}
