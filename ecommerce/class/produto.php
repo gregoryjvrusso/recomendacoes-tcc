@@ -10,52 +10,40 @@ class Produto
 	private $quantidade;
 	private $fotos = array();
 
-	public function getSku()
-	{
+	public function getSku(){
 		return $this->sku;
 	}
-	public function setSku($sku)
-	{
+	public function setSku($sku){
 		$this->sku = $sku;
 	}
-	public function getNome()
-	{
+	public function getNome(){
 		return $this->nome;
 	}
-  public function setNome($nome)
-  {
+  public function setNome($nome){
     $this->nome = $nome;
   }
-	public function getMarca()
-	{
+	public function getMarca(){
 		return $this->marca;
 	}
-	public function setMarca($marca)
-	{
+	public function setMarca($marca){
 		$this->marca = $marca;
 	}
-	public function getPrecoOriginal()
-	{
+	public function getPrecoOriginal(){
 		return $this->preco_original;
 	}
-	public function setPrecoOriginal($preco)
-	{
+	public function setPrecoOriginal($preco){
 		$this->preco_original = $preco;
 	}
-	public function getPrecoDesconto()
-	{
+	public function getPrecoDesconto(){
 		return $this->preco_desconto;
 	}
-	public function setPrecoDesconto($preco)
-	{
+	public function setPrecoDesconto($preco){
 		$this->preco_desconto = $preco;
 	}
-	public function getArvoreCategoria()
-	{
+	public function getArvoreCategoria(){
 		return $this->arvore_categoria;
 	}
-	public function setArvoreCategoria($arvore_categoria_pai, $arvore_categoria_filha)
-	{
+	public function setArvoreCategoria($arvore_categoria_pai, $arvore_categoria_filha){
 		$this->arvore_categoria = $arvore_categoria_pai . '|' . $arvore_categoria_filha;
 	}
 	public function setArvoreCategoriaBD($arvore_categoria){
@@ -65,13 +53,30 @@ class Produto
 		$genero = explode("|", $this->arvore_categoria);
 		return $genero[0];
 	}
-	public function getQuantidade()
-	{
+	public function getQuantidade(){
 		return $this->quantidade;
+  }
+  public function setQuantidade($quantidade){
+    $this->quantidade = $quantidade;
 	}
-	public function setQuantidade($quantidade)
-	{
-		$this->quantidade = $quantidade;
+	public function setQuantidadeArray($quantidade){
+    var_dump($quantidade);
+    foreach($quantidade as $quantidadeUnica => $value){
+      if($value !== ""){
+        $this->quantidade += intval($value);
+      }
+    }
+	}
+	public function setTratamentoQuantidade($quantidade){
+    $quantidadeTratada = array();
+    foreach($quantidade as $quantidadeUnica => $value){
+      if($value !== ""){
+        array_push($quantidadeTratada, $value);
+      }else{
+        array_push($quantidadeTratada, 0);
+      }    
+    }    
+    return $quantidadeTratada;
 	}
 	public function setFotos($foto1, $foto2, $foto3){
 		if($foto1 !== ""){

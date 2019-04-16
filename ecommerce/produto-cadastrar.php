@@ -101,8 +101,22 @@
           <!-- Fim da Categoria Filho -->
         </div>
         <div class="form-group">
-          <label for="preco_desconto_produto">Quantidade</label>
-          <input type="text" class="form-control" id="quantidade" name="quantidade" placeholder="Quantidade">
+          <h2>Quantidade</h2>
+          <!-- Tratamento de Quantidade -->
+          <label for="preco_desconto_produto">P</label>
+          <input type="text" class="form-control" id="quantidade_p" name="quantidade_p" placeholder="Quantidade">
+
+          <label for="preco_desconto_produto">M</label>
+          <input type="text" class="form-control" id="quantidade_m" name="quantidade_m" placeholder="Quantidade">
+
+          <label for="preco_desconto_produto">G</label>
+          <input type="text" class="form-control" id="quantidade_g" name="quantidade_g" placeholder="Quantidade">
+
+          <label for="preco_desconto_produto">GG</label>
+          <input type="text" class="form-control" id="quantidade_gg" name="quantidade_gg" placeholder="Quantidade">
+
+          <label for="preco_desconto_produto">Unico</label>
+          <input type="text" class="form-control" id="quantidade_unico" name="quantidade_unico" placeholder="Quantidade">
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>

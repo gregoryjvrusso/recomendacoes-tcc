@@ -88,3 +88,11 @@ function listaHandCraft($conexao){
 	}
 	return $handCrafts;
 }
+
+function insereQuantidade($conexao, $produto, $quantidade){
+	$query = "insert into quantidades (sku_produto, p, m, g, gg, unico) value ({$produto->getSku()}, $quantidade[0], $quantidade[1], $quantidade[2], $quantidade[3], $quantidade[4])";
+	var_dump($query);
+	$resultadoDaInsersao = mysqli_query($conexao, $query);
+
+	return $resultadoDaInsersao;	
+}
