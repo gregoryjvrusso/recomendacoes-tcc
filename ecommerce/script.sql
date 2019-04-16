@@ -34,3 +34,20 @@ CREATE TABLE HANDCRAFTS (
   id_handcrafts INT PRIMARY KEY AUTO_INCREMENT,
   sku INT NOT NULL
 );
+
+CREATE TABLE USUARIOS (
+  id_usuario INT PRIMARY KEY AUTO_INCREMENT,
+  login varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  nome varchar(255) NOT NULL,
+  data_nascimento date NOT NULL,
+  sexo char NOT NULL,
+  email varchar(500) NOT NULL,
+  endereco varchar(255) NOT NULL,
+  bairro varchar(255) NOT NULL,
+  cidade varchar(255) NOT NULL,
+  estado varchar(255) NOT NULL,
+  cep varchar(9) NOT NULL 
+);
+
+

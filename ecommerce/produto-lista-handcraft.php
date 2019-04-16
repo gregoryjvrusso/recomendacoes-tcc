@@ -3,6 +3,28 @@ require_once("banco-produto.php");
 
 $produtos = listaProduto($conexao);
 
+//pega os skus de todos os produtos escolhidos para serem recomendados
+$handCrafts = listaHandCraft($conexao);
+
+
+//reordena o array produtos antes 
+//de enviá-lo ao front a fim de que 
+//os produtos sejam exibidos na ordem de recomendação correta
+$temporario = '';
+for ($i = 0; $i < sizeof($produtos); $i++) {
+  $produto = $produtos[$i];
+  foreach ($handCrafts as $handcraft) :
+    if ($produto->getsku() == $handcraft) {
+      //elimina o elemento recomendado
+      unset($produtos[$i]);
+      //'reconta' o indice
+      array_values($produtos);
+      //adiciona o elemento recomendado no top
+      array_unshift($produtos, $produto);
+    }
+  endforeach;
+}
+
 $json = array();
 foreach ($produtos as $produto) :
   array_push($json, array(

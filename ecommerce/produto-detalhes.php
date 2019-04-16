@@ -13,12 +13,12 @@ $json = array(
     "genero" => $produto->getGenero()
   );
 $codificado = json_encode($json);
-file_put_contents('produto.json', $codificado);
+file_put_contents('json-produto.json', $codificado);
 ?>
 <script>
   (function(){
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'produto.json', true);
+    xmlhttp.open('GET', 'json-produto.json', true);
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4) {
         if(xmlhttp.status == 200) {
