@@ -80,6 +80,15 @@ function insereFoto($conexao, $produto, $foto){
 	return $resultadoDaInsersao;
 }
 
+function listaHandCraft($conexao){
+	$handCrafts = array();
+	$resultado = mysqli_query($conexao, "select * from HANDCRAFTS");
+	while($handCraft_array = mysqli_fetch_assoc($resultado)){
+		array_push($handCrafts, $handCraft_array{'sku'});
+	}
+	return $handCrafts;
+}
+
 function insereQuantidade($conexao, $produto, $quantidade){
 	$query = "insert into quantidades (sku_produto, p, m, g, gg, unico) value ({$produto->getSku()}, $quantidade[0], $quantidade[1], $quantidade[2], $quantidade[3], $quantidade[4])";
 	var_dump($query);
