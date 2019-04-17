@@ -1,6 +1,8 @@
 <?php
 require_once("banco-usuario.php");
-require_once("class/usuario.php");
+require("vendor/autoload.php");
+
+use classes\Usuario;
 
 $usuario = new Usuario();
 $usuario->setLogin($_POST{'login'});

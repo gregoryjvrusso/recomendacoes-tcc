@@ -1,5 +1,9 @@
 <?php
-class Usuario{
+
+namespace classes; 
+
+class Usuario
+{
 	private $id;
 	private $login;
 	private $password;
@@ -44,9 +48,15 @@ class Usuario{
 		$dataM = $aux1[1]; 
 		return $dataD . "/" . $dataM;
 	}
+	public function getDataNascimentoBD(){
+		return $this->data_nascimento;
+	}
 	public function setDataNascimento($data_nascimento){
 		$aux = explode("/", $data_nascimento);
 		$data_nascimento = $aux[2] . "-". $aux[1] . "-" . $aux[0];
+		$this->data_nascimento = $data_nascimento;
+	}
+	public function setDataNascimentoBD($data_nascimento){
 		$this->data_nascimento = $data_nascimento;
 	}
 	public function getSexo(){
