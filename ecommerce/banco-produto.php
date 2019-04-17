@@ -1,6 +1,8 @@
 <?php 
 include("conecta.php");
-require_once("class/produto.php");
+require("vendor/autoload.php");
+
+use classes\Produto;
 
 function listaProduto($conexao){
 	$produtos = array();
