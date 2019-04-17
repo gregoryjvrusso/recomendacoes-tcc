@@ -1,6 +1,8 @@
 <?php
 require_once("banco-produto.php");
-require_once("class/produto.php");
+require("vendor/autoload.php");
+
+use classes\Produto;
 
 $produto = new Produto();
 $produto->setNome($_POST{'nome'});
