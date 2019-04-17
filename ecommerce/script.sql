@@ -48,6 +48,7 @@ CREATE TABLE USUARIOS (
   bairro varchar(255) NOT NULL,
   cidade varchar(255) NOT NULL,
   estado varchar(255) NOT NULL,
+  pais varchar(255) NOT NULL,
   cep varchar(9) NOT NULL 
 );
 
