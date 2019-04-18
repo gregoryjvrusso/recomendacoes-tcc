@@ -1,4 +1,4 @@
-/* ignore erros */
+/* ignore errors */
 CREATE TABLE PRODUTOS (
   sku INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   nome VARCHAR(200) NOT NULL,
@@ -51,5 +51,11 @@ CREATE TABLE USUARIOS (
   pais varchar(255) NOT NULL,
   cep varchar(9) NOT NULL 
 );
+
+CREATE TABLE CARRINHOS(
+  id_carrinho INT PRIMARY KEY AUTO_INCREMENT,
+  id_sku INT NOT NULL,
+  id_usuario INT NOT NULL
+)
 
 

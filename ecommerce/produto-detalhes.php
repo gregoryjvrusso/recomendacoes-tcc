@@ -74,8 +74,8 @@ file_put_contents('json-produto.json', $codificado);
       </div>
     </div>
     <div class="col-md-offset-1 col-md-5 col-sm-12">
-      <form action="cart-add.php" method="post">
-        <input type="hidden" name="produto_sku" value="234jjgr">
+      <form action="carrinho-adicionar.php" method="post">
+        <input type="hidden" name="produto_sku" value="<?= $produto->getSku(); ?>">
         <div class="row product-information" id="product-name-container">
           <div class="col-10 col-sm-12">
             <h1 id="produto-nome"><?= $produto->getNome(); ?></h1>
