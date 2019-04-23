@@ -97,10 +97,10 @@ file_put_contents('json-produto.json', $codificado);
         <div class="row product-information">
           <div class="col-md-6 col-sm-12 purchase-group">
               <select class="form-control" name="produto_tamanho">
-                <option>P</option>
-                <option>M</option>
-                <option>G</option>
-                <option>GG</option>
+                <option value="P">P</option>
+                <option value="M">M</option>
+                <option value="G">G</option>
+                <option value="GG">GG</option>
               </select>
           </div>
           <div class="col-md-6 col-sm-12 purchase-group">

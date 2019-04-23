@@ -55,7 +55,8 @@ CREATE TABLE USUARIOS (
 CREATE TABLE CARRINHOS(
   id_carrinho INT PRIMARY KEY AUTO_INCREMENT,
   id_sku INT NOT NULL,
-  id_usuario INT NOT NULL
-)
+  id_usuario INT NOT NULL,
+  tamanho VARCHAR(5) NOT NULL
+);
 
 
