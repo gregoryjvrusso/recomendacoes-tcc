@@ -1,6 +1,5 @@
 <?php include("php/header.php"); 
 require_once("banco-carrinho.php");
-
 $carrinhos = listaCarrinho($conexao, $_SESSION{'usuario_id'});
 $valorTotal = 0;
 ?>
@@ -40,9 +39,15 @@ $valorTotal = 0;
 					<tr>
 						<th scope="col"></th>
 						<th scope="col"></th>
-						<th scope="col"></th>
+						<th scope="col">Valor Total</th>
 						<th scope="col">R$ <?= $valorTotal ?></th>
-						<th scope="col"></th>
+						<th scope="col">
+							<form action="compras-adicionar.php" method="post">
+								<input type="hidden" name="id_cliente" value="<?= $_SESSION{'usuario_id'} ?>" />
+								<input type="hidden" name="id_compra" value="<?= md5(uniqid(rand(), true)) ?>" />
+								<button class="btn btn-success">Comprar</button>
+							</form>
+						</th>
 					</tr>
 				</thead>
 				</tbody>

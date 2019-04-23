@@ -50,7 +50,7 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         <a class="dropdown-item" href="#">Carrinho</a>
-        <a class="dropdown-item" href="#">Minhas Compras</a>
+        <a class="dropdown-item" href="compras-cliente.php">Minhas Compras</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="usuario-logout.php">Logout</a>
       </div>
