@@ -59,4 +59,12 @@ CREATE TABLE CARRINHOS(
   tamanho VARCHAR(5) NOT NULL
 );
 
+CREATE TABLE COMPRAS(
+  id_produto_comprado INT PRIMARY KEY AUTO_INCREMENT,
+  id_pedido varchar(55),
+  id_cliente INT NOT NULL,
+  sku INT NOT NULL,
+  tamanho VARCHAR(5) NOT NULL
+);
+
 
