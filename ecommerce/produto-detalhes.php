@@ -30,10 +30,6 @@ file_put_contents('json-produto.json', $codificado);
   })();
 </script>
 <style>
-  .content{
-    padding-top: 20px;
-    background-color: #fcfcfc;
-  }
   #produto-nome {
     font-size: 30px;
   }
@@ -42,6 +38,9 @@ file_put_contents('json-produto.json', $codificado);
   }
   #produto-marca {
     font-size: 14px;
+  }
+  .purchase-group{
+    margin-top: 10px;
   }
 </style>
 <div class="container-fluid content">
@@ -73,7 +72,7 @@ file_put_contents('json-produto.json', $codificado);
         </a>
       </div>
     </div>
-    <div class="col-md-offset-1 col-md-5 col-sm-12">
+    <div class="col-md-offset-1 col-md-6 col-sm-12">
       <form action="carrinho-adicionar.php" method="post">
         <input type="hidden" name="produto_sku" value="<?= $produto->getSku(); ?>">
         <div class="row product-information" id="product-name-container">
@@ -95,7 +94,7 @@ file_put_contents('json-produto.json', $codificado);
           </div>
         </div>
         <div class="row product-information">
-          <div class="col-md-6 col-sm-12 purchase-group">
+          <div class="col-md-7 col-sm-12 purchase-group">
               <select class="form-control" name="produto_tamanho">
                 <option value="P">P</option>
                 <option value="M">M</option>
@@ -103,7 +102,7 @@ file_put_contents('json-produto.json', $codificado);
                 <option value="GG">GG</option>
               </select>
           </div>
-          <div class="col-md-6 col-sm-12 purchase-group">
+          <div class="col-md-7 col-sm-12 purchase-group">
             <button class="btn btn-primary btn-purchase btn-block" type="submit">Button</button>
           </div>
         </div>

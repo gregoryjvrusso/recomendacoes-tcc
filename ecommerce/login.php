@@ -2,7 +2,7 @@
 require_once("php/header.php");
 require_once("usuario-logica.php");
 ?>
-<div class="container">
+<div class="container content">
 	<h2>LOGIN</h2>
 	<div class="row">
 		<div class="col-md-6 col-sm-12">

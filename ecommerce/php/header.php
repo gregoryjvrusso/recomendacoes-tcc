@@ -9,11 +9,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Document</title>
   <link rel="stylesheet" type="text/css" href="./../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./../css/estilo-default.css">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="produto-lista.php">Loja</a>
+  <a class="navbar-brand" href="index.php">Loja</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>

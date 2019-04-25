@@ -18,66 +18,16 @@ endforeach;
 $codificado = json_encode($json);
 file_put_contents('json-lista-produtos.json', $codificado);
 ?>
-<script>
-  (function() {
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('GET', 'json-lista-produtos.json', true);
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState == 4) {
-        if (xmlhttp.status == 200) {
-          dataLayer = JSON.parse(xmlhttp.responseText);
-        }
-      }
-    };
-    xmlhttp.send(null);
-  })();
-</script>
-
-
-
-
-<style>
-  .imagem-produto {
-    margin-bottom: 0px
-  }
-
-  .texto-produto {
-    margin: 0px;
-    color: black;
-  }
-
-  .texto-produto:link {
-    text-decoration: none;
-  }
-
-  .nome-produto {
-    margin: 0px;
-    padding: 0px;
-  }
-
-  .marca-produto {
-    margin: 0px;
-  }
-
-  .preco-produto {
-    margin: 0px
-  }
-
-  .preco-original {
-    text-decoration: line-through;
-  }
-
-  .preco-desconto {
-    margin-left: 10px;
-  }
-</style>
-<div class="container">
+<head>  
+  <link rel="stylesheet" type="text/css" href="../css/estilo-catalogo.css">
+</head>
+<div class="container content">
   <div class="row">
     <div class="col-md-offset-2 col-md-10">
       <h1>Produtos</h1>
       <div class="row">
         <?php foreach ($produtos as $produto) : ?>
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-4 col-sm-12 produto">
             <a href="produto-detalhes.php?sku=<?= $produto->getSku() ?>">
               <div class="card">
                 <img class="card-img-top imagem-produto" src="<?= $produto->getFotos()[0] ?>" alt="Foto do Produto">
@@ -97,4 +47,5 @@ file_put_contents('json-lista-produtos.json', $codificado);
     </div>
   </div>
 </div>
+<script src="../js/script-catalogo.js"></script>
 <?php include("php/footer.php"); ?>
