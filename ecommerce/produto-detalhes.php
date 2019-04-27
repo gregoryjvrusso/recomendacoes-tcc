@@ -170,7 +170,6 @@ file_put_contents('json-produto.json', $codificado);
   var inputTipoNota = document.querySelector('#tipo-nota');
 
   if(inputNota.getAttribute('value') > 0){
-    console.log(inputTipoNota);
     if(inputTipoNota.getAttribute('value') == 'media'){
       document.querySelector('.estrelas').classList.add('media');
     }
