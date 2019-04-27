@@ -42,6 +42,19 @@ file_put_contents('json-produto.json', $codificado);
   .purchase-group{
     margin-top: 10px;
   }
+  .estrelas input[type=radio] {
+    display: none;
+  }
+  .estrelas label i.fa:before {
+    content:'\f005';
+    color: #FC0;
+  }
+  .estrelas input[type=radio]:checked ~ label i.fa:before {
+    color: #CCC;
+  }
+  #botao-nota{
+    opacity: 0;
+  }
 </style>
 <div class="container-fluid content">
   <div class="row">
@@ -73,6 +86,24 @@ file_put_contents('json-produto.json', $codificado);
       </div>
     </div>
     <div class="col-md-offset-1 col-md-6 col-sm-12">
+      <div class="estrelas">
+        <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
+        <label for="cm_star-1" class="star"><i class="fa"></i></label>
+        <input type="radio" id="cm_star-1" name="fb" value="1"/>
+        <label for="cm_star-2" class="star"><i class="fa"></i></label>
+        <input type="radio" id="cm_star-2" name="fb" value="2"/>
+        <label for="cm_star-3" class="star"><i class="fa"></i></label>
+        <input type="radio" id="cm_star-3" name="fb" value="3"/>
+        <label for="cm_star-4" class="star"><i class="fa"></i></label>
+        <input type="radio" id="cm_star-4" name="fb" value="4"/>
+        <label for="cm_star-5" class="star"><i class="fa"></i></label>
+        <input type="radio" id="cm_star-5" name="fb" value="5"/>
+      </div>
+      <form action="nota-adicionar.php" method="post">
+        <input type="hidden" id="sku" name="sku" value="<?= $produto->getSku() ?>">
+        <input type="hidden" id="nota" name="nota">
+        <button type="submit" id="botao-nota"></button>
+      </form>
       <form action="carrinho-adicionar.php" method="post">
         <input type="hidden" name="produto_sku" value="<?= $produto->getSku(); ?>">
         <div class="row product-information" id="product-name-container">
@@ -110,5 +141,17 @@ file_put_contents('json-produto.json', $codificado);
     </div>
   </div>
 </div>
+<script>
+  var estrela = document.querySelectorAll('.star');
+  estrela.forEach(function(item){
+    item.onclick = function(){
+      let id = item.getAttribute('for');
+      let inputId = document.querySelector('#' + id);
+      document.querySelector('#nota').setAttribute('value', inputId.getAttribute('value'));
+      document.querySelector('#botao-nota').click();
+    };
+  });
+</script>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <?php include("php/footer.php"); ?>
 
