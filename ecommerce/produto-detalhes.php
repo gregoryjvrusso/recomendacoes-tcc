@@ -1,17 +1,34 @@
 <?php include("php/header.php"); 
 require_once("banco-produto.php");
+require_once("banco-nota.php");
 
 $sku = $_GET['sku'];
 $produto = buscaProduto($conexao, $sku);
+$nota = mediaNotaProduto($conexao, $_GET['sku']);
+$tipoNota = "";
+if($nota > 0){
+  $tipoNota = 'media';
+}
+if(verificaUsuarioMenu()){
+  // Verifico se o usuário já votou
+  // Caso já tenha votado retorna a nota dele
+  // Caso não tenha votado retorna a média de notas
+  $notaUsuario = buscaNotaCliente($conexao, $sku, $_SESSION{'usuario_id'});
+  if($notaUsuario > 0){
+    $tipoNota = "cliente";
+    $nota = $notaUsuario;
+  }
+}
+
 $json = array(
-    "sku" => $produto->getSku(),
-    "nome" => $produto->getNome(),
-    "marca" => $produto->getMarca(),
-    "preco_original" => $produto->getPrecoOriginal(),
-    "preco_desconto" => $produto->getPrecoDesconto(),
-    "arvore_categoria" => $produto->getArvoreCategoria(),
-    "genero" => $produto->getGenero()
-  );
+  "sku" => $produto->getSku(),
+  "nome" => $produto->getNome(),
+  "marca" => $produto->getMarca(),
+  "preco_original" => $produto->getPrecoOriginal(),
+  "preco_desconto" => $produto->getPrecoDesconto(),
+  "arvore_categoria" => $produto->getArvoreCategoria(),
+  "genero" => $produto->getGenero()
+);
 $codificado = json_encode($json);
 file_put_contents('json-produto.json', $codificado);
 ?>
@@ -52,6 +69,11 @@ file_put_contents('json-produto.json', $codificado);
   .estrelas input[type=radio]:checked ~ label i.fa:before {
     color: #CCC;
   }
+  .estrelas.media label i.fa:before {
+    content:'\f005';
+    color: #8b99e5;
+  }
+
   #botao-nota{
     opacity: 0;
   }
@@ -86,6 +108,7 @@ file_put_contents('json-produto.json', $codificado);
       </div>
     </div>
     <div class="col-md-offset-1 col-md-6 col-sm-12">
+      <!-- Notas -->
       <div class="estrelas">
         <input type="radio" id="cm_star-empty" name="fb" value="" checked/>
         <label for="cm_star-1" class="star"><i class="fa"></i></label>
@@ -100,10 +123,12 @@ file_put_contents('json-produto.json', $codificado);
         <input type="radio" id="cm_star-5" name="fb" value="5"/>
       </div>
       <form action="nota-adicionar.php" method="post">
+        <input type="hidden" id="tipo-nota" name="tipo-nota" value="<?= $tipoNota ?>">
         <input type="hidden" id="sku" name="sku" value="<?= $produto->getSku() ?>">
-        <input type="hidden" id="nota" name="nota">
+        <input type="hidden" id="nota" name="nota" value="<?= $nota ?>">
         <button type="submit" id="botao-nota"></button>
       </form>
+      <!-- Fim das Notas -->
       <form action="carrinho-adicionar.php" method="post">
         <input type="hidden" name="produto_sku" value="<?= $produto->getSku(); ?>">
         <div class="row product-information" id="product-name-container">
@@ -142,6 +167,16 @@ file_put_contents('json-produto.json', $codificado);
   </div>
 </div>
 <script>
+  var inputNota = document.querySelector('#nota');
+  var inputTipoNota = document.querySelector('#tipo-nota');
+
+  if(inputNota.getAttribute('value') > 0){
+    console.log(inputTipoNota);
+    if(inputTipoNota.getAttribute('value') == 'media'){
+      document.querySelector('.estrelas').classList.add('media');
+    }
+    document.querySelector('.star[for=cm_star-' + inputNota.getAttribute('value') + ']').click();
+  }
   var estrela = document.querySelectorAll('.star');
   estrela.forEach(function(item){
     item.onclick = function(){

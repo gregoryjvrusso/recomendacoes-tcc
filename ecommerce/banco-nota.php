@@ -14,23 +14,36 @@ function insereNota($conexao, $id_produto, $id_usuario, $nota)
   return $resultadoDaInsersao;
 }
 
-function mediaNotaProduto($conexao, $id_produto) {
+function alteraNota($conexao, $id_produto, $id_usuario, $nota)
+{
+	$query = "update notas SET nota = {$nota} where sku = $id_produto and id_usuario = $id_usuario";
 
-	$query = "select AVG(notas) as nota from notas where sku = $id_produto";
-	$carrinhos = array();
+  $resultadoDaInsersao = mysqli_query($conexao, $query);
+  return $resultadoDaInsersao;
+}
+
+function buscaNotaCliente($conexao, $id_produto, $id_cliente) {
+  $query = "select nota from notas where sku = $id_produto and id_usuario = $id_cliente";
 	$resultado = mysqli_query($conexao, $query);
     
-  $notas = array();
+  $notas = 0;
   while($notas_array = mysqli_fetch_assoc($resultado)){
-    $nota['nota'] = $notas_array['nota'];
+    $nota = intval($notas_array['nota']);
 
-    array_push($notas, $nota);
+    $notas = $nota;
   }
   return $notas;
 }
 
-function removeCarrinho($conexao, $id){
-	$query = "delete from carrinhos where id_carrinho = {$id}";
+function mediaNotaProduto($conexao, $id_produto) {
+	$query = "select AVG(nota) as nota from notas where sku = $id_produto";
+	$resultado = mysqli_query($conexao, $query);
+    
+  $notas = 0;
+  while($notas_array = mysqli_fetch_assoc($resultado)){
+    $nota = intval($notas_array['nota']);
 
-	return mysqli_query($conexao, $query);
+    $notas = $nota;
+  }
+  return $notas;
 }
