@@ -73,7 +73,6 @@ file_put_contents('json-produto.json', $codificado);
     content:'\f005';
     color: #8b99e5;
   }
-
   #botao-nota{
     opacity: 0;
   }
