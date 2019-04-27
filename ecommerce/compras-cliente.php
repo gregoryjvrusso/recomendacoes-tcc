@@ -5,9 +5,9 @@ require_once("banco-compras.php");
 $id_cliente = $_SESSION{'usuario_id'};
 $compras = listaCompraCliente($conexao, $id_cliente);
 ?>
-<div class="container-fluid content">
+<div class="container content">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
 			<h2>Compras realizadas</h2>
 			<table class="table table-hover">
 				<thead>

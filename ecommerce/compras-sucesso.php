@@ -6,9 +6,9 @@ $id_compra = $_GET['pedido'];
 $compras = listaCompraEspecifica($conexao, $id_compra);
 $valorTotal = 0;
 ?>
-<div class="container-fluid content">
+<div class="container content">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-10">
 			<h2>Compra realizada com sucesso</h2>
 			<p>Pedido nº <?= $id_compra ?></p>
 			<table class="table table-hover">

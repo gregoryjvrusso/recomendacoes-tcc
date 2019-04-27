@@ -1,0 +1,29 @@
+.produto{
+	margin-bottom: 20px;
+}
+.imagem-produto {
+	margin-bottom: 0px
+}
+.texto-produto {
+	margin: 0px;
+	color: black;
+}
+.texto-produto:link {
+	text-decoration: none;
+}
+.nome-produto {
+	margin: 0px;
+	padding: 0px;
+}
+.marca-produto {
+	margin: 0px;
+}
+.preco-produto {
+	margin: 0px
+}
+.preco-original {
+	text-decoration: line-through;
+}
+.preco-desconto {
+	margin-left: 10px;
+}

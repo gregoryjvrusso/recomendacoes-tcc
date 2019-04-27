@@ -3,9 +3,9 @@ require_once("banco-carrinho.php");
 $carrinhos = listaCarrinho($conexao, $_SESSION{'usuario_id'});
 $valorTotal = 0;
 ?>
-<div class="container-fluid">
+<div class="container content">
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-10">
 			<h2>Carrinho</h2>
 			<table class="table table-hover">
 				<thead>

@@ -6,15 +6,11 @@
   });
 </script>
 <style>
-  .content{
-    padding: 20px;
-    background-color: #fcfcfc;
-  }
   .texto-categoria{
     font-size: 18px;
   }
 </style>
-<div class="container-fluid content">
+<div class="container content">
   <div class="row">
     <div class="col-md-6">
       <h1>Cadastrar Produto</h1>
