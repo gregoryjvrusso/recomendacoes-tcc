@@ -41,7 +41,7 @@ $codificado = json_encode($json);
 file_put_contents('json-lista-produtos.json', $codificado);
 ?>
 <head>  
-  <link rel="stylesheet" type="text/css" href="../css/estilo-catalogo.css">
+  <link rel="stylesheet" type="text/css" href="./css/estilo-catalogo.css">
 </head>
 <div class="container content">
   <div class="row">
@@ -69,5 +69,5 @@ file_put_contents('json-lista-produtos.json', $codificado);
     </div>
   </div>
 </div>
-<script src="../js/script-catalogo.js"></script>
+<script src="./js/script-catalogo.js"></script>
 <?php include("php/footer.php"); ?>

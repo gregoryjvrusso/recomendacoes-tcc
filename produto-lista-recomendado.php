@@ -27,7 +27,7 @@ file_put_contents('json-lista-produtos-recomendado.json', $codificadoRecomendado
 ?>
 
 <head>  
-  <link rel="stylesheet" type="text/css" href="../css/estilo-catalogo.css">
+  <link rel="stylesheet" type="text/css" href="./css/estilo-catalogo.css">
 </head>
 <div class="container content">
   <div class="row">
@@ -55,12 +55,11 @@ file_put_contents('json-lista-produtos-recomendado.json', $codificadoRecomendado
     </div>
   </div>
 </div>
-<script src="../js/script-catalogo.js"></script>
+<script src="./js/script-catalogo.js"></script>
 <script>
 (function(){
   var usuario = getIdUsuario();
   var dataset = getRequest();
-  console.log(dataset)
   var correlacaoPorPessoa = function (dataset,u1,u2){
     var existeU1U2 = {};
     
@@ -82,19 +81,23 @@ file_put_contents('json-lista-produtos-recomendado.json', $codificadoRecomendado
       
     //calculate the sum and square sum of each data point
     //and also the product of both point
-    for(var item in existeU1U2){
-      somaU1 += dataset[u1][item]
-      somaU2 += dataset[u2][item]
-      somaU1Sq += Math.pow(dataset[u1][item],2);
-      somaU2Sq += Math.pow(dataset[u2][item],2);
-      produtoU1U2 += dataset[u1][item]*dataset[u2][item];
+    for(var sku in existeU1U2){
+      somaU1 += dataset[u1][sku]
+      somaU2 += dataset[u2][sku]
+
+      somaU1Sq += Math.pow(dataset[u1][sku],2);
+      somaU2Sq += Math.pow(dataset[u2][sku],2);
+      produtoU1U2 += dataset[u1][sku]*dataset[u2][sku];
     }
-    
+    //console.log('somaU1Sq = ' + somaU1 * somaU2 / numeroProdutos)
     var numerador = produtoU1U2 - (somaU1 * somaU2 / numeroProdutos);
-    var st1 = somaU1Sq - Math.pow(somaU1,2)/numeroProdutos;
-    var st2 = somaU2Sq - Math.pow(somaU2,2)/numeroProdutos;
+    //console.log(somaU1 * somaU2 / numeroProdutos)
+    var st1 = somaU1Sq - (Math.pow(somaU1,2)/numeroProdutos);
+    var st2 = somaU2Sq - (Math.pow(somaU2,2)/numeroProdutos);
+    //console.log('st1 = ' + Math.pow(somaU1,2) + ' e st2 = ' + somaU2)
     var denominador = Math.sqrt(st1*st2);
-    if(denominador ==0) return 0;
+    //console.log('denominador = ' + st1 * st2)
+    if(denominador == 0) return 0;
     else {
       var val = numerador / denominador;
       return val;
@@ -155,6 +158,7 @@ file_put_contents('json-lista-produtos-recomendado.json', $codificadoRecomendado
     }
     return [rank_lst, recomendados];
   }
+  console.log(dataset)
   var skuProduto = motorRecomendacao(dataset, usuario, correlacaoPorPessoa)
   reordenarProduto(skuProduto)
 })()
