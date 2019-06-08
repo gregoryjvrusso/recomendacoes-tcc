@@ -22,6 +22,18 @@ function alteraNota($conexao, $id_produto, $id_usuario, $nota)
   return $resultadoDaInsersao;
 }
 
+function listaNota($conexao){
+  $notas = array();
+	$resultado = mysqli_query($conexao, "select * from notas");
+	while($notas_array = mysqli_fetch_assoc($resultado)){
+    $nota['id_cliente'] = $notas_array['id_usuario'];
+    $nota['sku'] = $notas_array['sku'];
+    $nota['nota'] = $notas_array['nota'];
+    array_push($notas, $nota);
+	}
+	return $notas;
+}
+
 function buscaNotaCliente($conexao, $id_produto, $id_cliente) {
   $query = "select nota from notas where sku = $id_produto and id_usuario = $id_cliente";
 	$resultado = mysqli_query($conexao, $query);

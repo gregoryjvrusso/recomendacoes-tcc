@@ -51,7 +51,7 @@
           <div class="categoria-pai">
             <p class="texto-categoria">Categoria Pai</p>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai1" value="masculino">
+              <input class="form-check-input" type="radio" name="arvore_categoria_pai" id="arvore_categoria_pai1" value="masculino" checked="checked">
               <label class="form-check-label" for="arvore_categoria_pai1">
                 Masculino
               </label>
@@ -75,7 +75,7 @@
             <p class="texto-categoria">Categoria Filho</p>
             <div class="categoria-filho-1">
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="arvore_categoria_filho" id="arvore_categoria_filho1" value="masculino">
+                <input class="form-check-input" type="radio" name="arvore_categoria_filho" id="arvore_categoria_filho1" value="masculino" checked="checked">
                 <label class="form-check-label" for="arvore_categoria_filho1">
                   Masculino
                 </label>
@@ -100,19 +100,19 @@
           <h2>Quantidade</h2>
           <!-- Tratamento de Quantidade -->
           <label for="preco_desconto_produto">P</label>
-          <input type="text" class="form-control" id="quantidade_p" name="quantidade_p" placeholder="Quantidade">
+          <input type="text" class="form-control" id="quantidade_p" name="quantidade_p" placeholder="Quantidade" value="10">
 
           <label for="preco_desconto_produto">M</label>
-          <input type="text" class="form-control" id="quantidade_m" name="quantidade_m" placeholder="Quantidade">
+          <input type="text" class="form-control" id="quantidade_m" name="quantidade_m" placeholder="Quantidade" value="10">
 
           <label for="preco_desconto_produto">G</label>
-          <input type="text" class="form-control" id="quantidade_g" name="quantidade_g" placeholder="Quantidade">
+          <input type="text" class="form-control" id="quantidade_g" name="quantidade_g" placeholder="Quantidade" value="10">
 
           <label for="preco_desconto_produto">GG</label>
-          <input type="text" class="form-control" id="quantidade_gg" name="quantidade_gg" placeholder="Quantidade">
+          <input type="text" class="form-control" id="quantidade_gg" name="quantidade_gg" placeholder="Quantidade" value="10">
 
           <label for="preco_desconto_produto">Unico</label>
-          <input type="text" class="form-control" id="quantidade_unico" name="quantidade_unico" placeholder="Quantidade">
+          <input type="text" class="form-control" id="quantidade_unico" name="quantidade_unico" placeholder="Quantidade" value="10">
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
       </form>
