@@ -53,6 +53,11 @@ file_put_contents('json-produto.json', $codificado);
   #produto-preco {
     font-size: 24px;
   }
+  #produto-preco-original {
+    font-size: 18px;
+    margin-left: 5px;
+    text-decoration: line-through;
+  }
   #produto-marca {
     font-size: 14px;
   }
@@ -138,7 +143,8 @@ file_put_contents('json-produto.json', $codificado);
         </div>
         <div class="row product-information" id="product-price-container">
           <div class="col-md-10 col-sm-12">
-            <span id="produto-preco"><?= $produto->getPrecoOriginal(); ?></span>
+	    <span id="produto-preco-original"><?= $produto->getPrecoOriginal(); ?></span>
+            <span id="produto-preco"><?= $produto->getPrecoDesconto(); ?></span>
             <input type="hidden" name="produto_preco" value="99,00">
           </div>
         </div>
@@ -158,7 +164,7 @@ file_put_contents('json-produto.json', $codificado);
               </select>
           </div>
           <div class="col-md-7 col-sm-12 purchase-group">
-            <button class="btn btn-primary btn-purchase btn-block" type="submit">Button</button>
+            <button class="btn btn-primary btn-purchase btn-block" type="submit">Comprar</button>
           </div>
         </div>
       </form>
