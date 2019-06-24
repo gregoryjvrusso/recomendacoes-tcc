@@ -161,6 +161,7 @@ file_put_contents('json-lista-produtos-recomendado.json', $codificadoRecomendado
   console.log(dataset)
   var skuProduto = motorRecomendacao(dataset, usuario, correlacaoPorPessoa)
   reordenarProduto(skuProduto)
+  console.log(skuProduto)
 })()
 
 function getIdUsuario(){
